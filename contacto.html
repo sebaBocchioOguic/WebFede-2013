@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Language" content="es">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Federico Mele</title>
+<link href="css/plantilla.css" rel="stylesheet" type="text/css" />
+<link href="css/alert.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript" type="text/javascript" src="js/string.js"></script>
+<script language="JavaScript" type="text/javascript" src="js/alert.js"></script>
+<script language="JavaScript" type="text/javascript">
+        function validarEmail(valor) {
+            if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/.test(valor)){
+                return true;
+            } else {
+                return false;
+            }
+        }
+        
+        function validaciones(){
+            if(document.contacto.nombre.value.length == 0){ // Valido Nombre
+                alert('Debe ingresar su nombre'); return 0;}
+            if(trim(document.getElementById("nombre").value).length == 0){
+                alert('Debe ingresar su nombre'); return 0;}
+
+            if(document.contacto.email.value.length == 0){ // Valido Email
+                alert("Debe ingresar su email"); return 0;}
+           
+            if(!(validarEmail(document.getElementById("email").value))){ // Valido Email
+                alert("La direcci\u00f3n de email es incorrecta."); return 0;}
+
+            if(document.contacto.consulta.value.length == 0){ // Valido Consulta
+                alert("Debe ingresar su consulta"); return 0;}
+            if(trim(document.getElementById("consulta").value).length == 0){
+                alert("Debe ingresar su consulta"); return 0;}
+            
+            // Envio el formulario
+            document.contacto.submit();
+}
+</script>
+</head>
+<body>
+	<div id="maqueta">
+		<div id="header"><img src="imagenes/header.png" alt="Federico Mele -Sitio Web Oficial-" /></div>
+        <div id="separador"><img src="imagenes/separador.jpg" /></div>
+		<div id="menu">
+	  <ul>
+            	<li><a href="index.html">HOME</a></li>
+				<li><a href="noticias.php">NOTICIAS</a></li>
+				<li><a href="biografia.html">BIOGRAFIA</a></li>
+				<li><a href="discografia.php">DISCOGRAFIA</a></li>
+				<li><a href="gears.php">GEARS</a></li>
+				<li><a href="multimedia.html">MULTIMEDIA</a></li>
+				<li><a href="tour.html">TOUR</a></li>
+				<li><a href="educacion.html">EDUCACION</a></li>
+				<li><a href="links.php">LINKS</a></li>
+				<li>CONTACTO</li>
+			</ul>
+        </div>
+      <div id="contenido">
+			<h2>CONTACTO</h2>
+			<form name="contacto" id="contacto" action="enviar_email.php" method="post">
+			<table id="tabla_contacto">
+            	<tr>
+                    <th width="97">Nombre *</th>
+                    <td><input type="text" size="40" maxlength="80" id="nombre" name="nombre" /></td>
+                </tr>
+            	<tr>
+                    <th>Email *</th>
+                    <td><input type="text" size="40" maxlength="80" id="email" name="email" /></td>
+                </tr>
+                <tr>
+                    <th>Telefono</th>
+                    <td><input type="text" size="15" maxlength="15" id="tel" name="tel" /></td>
+                </tr>
+            	<tr>
+                    <th>Consulta *</th>
+                    <td><textarea cols="34" rows="10" id="consulta" name="consulta"></textarea></td>
+                </tr>
+                <tr>
+                    <th colspan="2"><input type="button" value="Enviar Consulta" name="enviar" id="enviar" onclick="javascript:validaciones();" /></th>
+                </tr>
+                <tr>
+                    <th colspan="2">* = campo obligatorio</th>
+                </tr>                
+            </table>
+        </form>
+      </div>
+        <div id="separador"><img src="imagenes/separador.jpg" /></div>
+		<div id="pie"><table width="100%" style="margin:0; padding:0;">
+	        <td><span style="text-align:left;"><img src="imagenes/copyright.jpg" /><a href="panel/form_login.php" target="_self"><img src="imagenes/login.jpg" /></a></span></td>
+            <td align="right"><span style="text-align:right;"><img src="imagenes/designedby.jpg" /></span></td></table></div>
+    </div>
+</body>
+</html>
